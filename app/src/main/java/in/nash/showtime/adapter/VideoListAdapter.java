@@ -39,8 +39,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
             });
         }
 
-        ViewHolder vh = new ViewHolder(view);
-        return vh;
+        return new ViewHolder(view);
     }
 
     @Override

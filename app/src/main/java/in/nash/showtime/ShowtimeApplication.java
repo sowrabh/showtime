@@ -10,7 +10,7 @@ import in.nash.showtime.utils.StethoUtil;
 /**
  * Created by avinash on 8/13/15.
  */
-public class ShowtimeApplication extends Application{
+public class ShowtimeApplication extends com.activeandroid.app.Application{
 
     private static Context sApplicationContext;
 

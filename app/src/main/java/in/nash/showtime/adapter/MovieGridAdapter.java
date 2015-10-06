@@ -39,8 +39,7 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
             });
         }
 
-        ViewHolder vh = new ViewHolder(view);
-        return vh;
+        return new ViewHolder(view);
     }
 
     @Override

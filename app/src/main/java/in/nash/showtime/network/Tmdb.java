@@ -1,6 +1,8 @@
 package in.nash.showtime.network;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.Interceptor;
@@ -67,9 +69,12 @@ public class Tmdb {
         okHttpClient.networkInterceptors().add(new AuthInterceptor());
         okHttpClient.setCache(cache);
 
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        final GsonConverterFactory gsonConverterFactory = GsonConverterFactory.create(gson);
+
         return new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(gsonConverterFactory)
                 .baseUrl(API_URL)
                 .client(okHttpClient)
                 .build();

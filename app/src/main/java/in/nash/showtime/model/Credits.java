@@ -17,9 +17,20 @@ public class Credits extends Model {
     @Column(name = "id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public Integer id;
 
+    @Expose
     public List<Person> cast;
 
+    @Expose
     public List<Person> crew;
 
+    @Expose
     public List<Person> guest_stars;
+
+    public List<Person> cast(){
+        return getMany(Person.class, "");
+    }
+
+    public Credits(){
+        super();
+    }
 }
