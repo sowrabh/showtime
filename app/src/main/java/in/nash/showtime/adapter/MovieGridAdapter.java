@@ -49,7 +49,7 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
         holder.mBoundPosition = position;
 
         Movie movie = mMoviesList.get(position);
-        String url = "http://image.tmdb.org/t/p/w300" + movie.getPosterUrl();
+        String url = "http://image.tmdb.org/t/p/w300" + movie.poster_path;
 
         Picasso.with(mContext)
                 .load(url)

@@ -55,11 +55,11 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Pe
     public void onBindViewHolder(final PersonListViewHolder holder, int position) {
 
         Person person = mPersonsList.get(position);
-        String url = "http://image.tmdb.org/t/p/w300" + person.getProfilePath();
+        String url = "http://image.tmdb.org/t/p/w300" + person.profile_path;
 
-        holder.mName.setText(person.getName());
-        Log.d("name", person.getName());
-        holder.mRole.setText(person.getCharacter());
+        holder.mName.setText(person.name);
+        Log.d("name", person.name);
+        holder.mRole.setText(person.character);
         Picasso.with(mContext)
                 .load(url)
                 .transform(new CircleTransform(0F, 0))

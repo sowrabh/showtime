@@ -50,8 +50,8 @@ public class ReviewListAdapter extends RecyclerView.Adapter<ReviewListAdapter.Vi
         holder.mBoundPosition = position;
 
         Review review = mReviewsList.get(position);
-        String author = review.getAuthor();
-        String description = review.getContent();
+        String author = review.author;
+        String description = review.content;
         Log.d(author, description);
 
         holder.mTitleView.setText(author);

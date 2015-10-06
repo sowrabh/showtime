@@ -9,20 +9,4 @@ public class Videos {
 
     public Integer id;
     public List<Video> results;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public List<Video> getResults() {
-        return results;
-    }
-
-    public void setResults(List<Video> results) {
-        this.results = results;
-    }
 }

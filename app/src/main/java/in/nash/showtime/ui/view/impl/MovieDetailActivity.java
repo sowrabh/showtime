@@ -98,7 +98,7 @@ public class MovieDetailActivity extends AppCompatActivity implements IMovieDeta
 
     public static Intent getStartIntent(Context context, Movie movie) {
         Intent starter = new Intent(context, MovieDetailActivity.class);
-        starter.putExtra("id", movie.getId());
+        starter.putExtra("id", movie.id);
         return starter;
     }
 
@@ -137,9 +137,9 @@ public class MovieDetailActivity extends AppCompatActivity implements IMovieDeta
 
     @Override
     public void setMovie(Movie movie) {
-        String url = "http://image.tmdb.org/t/p/w780" + movie.getBackdropPath();
-        String movieTitle = movie.getTitle();
-        String movieOverview = movie.getOverview();
+        String url = "http://image.tmdb.org/t/p/w780" + movie.backdrop_path;
+        String movieTitle = movie.title;
+        String movieOverview = movie.overview;
 
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -157,8 +157,8 @@ public class MovieDetailActivity extends AppCompatActivity implements IMovieDeta
         setCrew((ArrayList<Person>) movie.credits.crew);
         setSimilarMovies(movie.similar.results);
         Log.d("log similar", "" + movie.similar.results.size());
-        setVideos(movie.videos.getResults());
-        Log.d("log videos", "" + movie.videos.getResults().size());
+        setVideos(movie.videos.results);
+        Log.d("log videos", "" + movie.videos.results.size());
 
     }
 
@@ -169,11 +169,11 @@ public class MovieDetailActivity extends AppCompatActivity implements IMovieDeta
         TextView revenue = (TextView) findViewById(R.id.revenue);
         TextView language = (TextView) findViewById(R.id.language);
 
-        released.setText(movie.getReleaseDate());
-        runtime.setText(StringUtil.getSrtingFromInt(movie.getRuntime()));
-        budget.setText(StringUtil.getSrtingFromInt(movie.getBudget()));
-        revenue.setText(StringUtil.getSrtingFromInt(movie.getRevenue()));
-        language.setText(movie.getOriginalLanguage());
+        released.setText(movie.release_date);
+        runtime.setText(StringUtil.getSrtingFromInt(movie.runtime));
+        budget.setText(StringUtil.getSrtingFromInt(movie.budget));
+        revenue.setText(StringUtil.getSrtingFromInt(movie.revenue));
+        language.setText(movie.original_language);
     }
 
     private void setSimilarMovies(final List<Movie> movies){
@@ -225,7 +225,7 @@ public class MovieDetailActivity extends AppCompatActivity implements IMovieDeta
                 int position = mVideoRecyclerView.getChildAdapterPosition(v);
                 Video video = videos.get(position);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.youtube.com/watch?v=" + video.getKey()));
+                intent.setData(Uri.parse("http://www.youtube.com/watch?v=" + video.key));
 
                 startActivity(intent);
             }

@@ -49,7 +49,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
         holder.mBoundPosition = position;
 
         Video video = mVideosList.get(position);
-        String url = "http://img.youtube.com/vi/" + video.getKey() + "/hqdefault.jpg";
+        String url = "http://img.youtube.com/vi/" + video.key + "/hqdefault.jpg";
 
         Log.d("url", url);
         Picasso.with(mContext)
