@@ -74,7 +74,7 @@ public class MoviesPresenterImpl implements IMoviesPresenter {
 
                         if(moviesResponse != null && moviesResponse.results != null) {
                             for (Movie movie : moviesResponse.results) {
-                                movie.save();
+//                                movie.save();
                             }
 
                             mMoviesView.setMovies(moviesResponse.results);

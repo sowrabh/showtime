@@ -1,21 +1,19 @@
 package in.nash.showtime.network;
 
 
+import com.facebook.stetho.okhttp.StethoInterceptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
 
-import java.io.File;
 import java.io.IOException;
 
 import in.nash.showtime.ShowtimeApplication;
 import in.nash.showtime.ui.Globals;
 import in.nash.showtime.utils.ConnectivityUtils;
-import in.nash.showtime.utils.StethoUtil;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
@@ -59,15 +57,9 @@ public class Tmdb {
     };
 
     protected Retrofit getRestAdapter() {
-
-        File httpCacheDirectory = new File(ShowtimeApplication.getAppContext().getCacheDir(), Globals.CACHE_DIRECTORY);
-
-        Cache cache = new Cache(httpCacheDirectory, 10 * 1024 * 1024);
-
         OkHttpClient okHttpClient = new OkHttpClient();
-        StethoUtil.addStethoIntercepter(okHttpClient);
+        okHttpClient.networkInterceptors().add(new StethoInterceptor());
         okHttpClient.networkInterceptors().add(new AuthInterceptor());
-        okHttpClient.setCache(cache);
 
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         final GsonConverterFactory gsonConverterFactory = GsonConverterFactory.create(gson);

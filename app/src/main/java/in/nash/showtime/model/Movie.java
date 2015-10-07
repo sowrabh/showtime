@@ -14,7 +14,7 @@ import in.nash.showtime.network.MoviesResponse;
 public class Movie extends Model {
 
     @Expose
-    @Column(name = "id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public String id;
 
     @Expose
