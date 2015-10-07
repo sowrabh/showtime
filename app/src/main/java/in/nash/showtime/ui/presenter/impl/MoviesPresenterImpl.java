@@ -3,6 +3,7 @@ package in.nash.showtime.ui.presenter.impl;
 import android.util.Log;
 
 import in.nash.showtime.R;
+import in.nash.showtime.model.Movie;
 import in.nash.showtime.network.MoviesResponse;
 import in.nash.showtime.network.Tmdb;
 import in.nash.showtime.ui.presenter.IMoviesPresenter;
@@ -67,6 +68,11 @@ public class MoviesPresenterImpl implements IMoviesPresenter {
 
                     @Override
                     public void onNext(MoviesResponse moviesResponse) {
+                        if(moviesResponse != null && moviesResponse.results != null){
+                            for(Movie movie : moviesResponse.results){
+                                movie.async().save();
+                            }
+                        }
 
                         mMoviesView.setMovies(moviesResponse.results);
                     }

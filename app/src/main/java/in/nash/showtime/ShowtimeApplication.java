@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.parse.Parse;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 import in.nash.showtime.utils.StethoUtil;
 
@@ -23,6 +24,7 @@ public class ShowtimeApplication extends Application{
         Parse.initialize(this, Secrets.PARSE_APP_ID, Secrets.PARSE_KEY);
 
         sApplicationContext = getApplicationContext();
+        FlowManager.init(this);
     }
 
     public static Context getAppContext() {

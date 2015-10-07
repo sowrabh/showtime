@@ -1,45 +1,85 @@
 package in.nash.showtime.model;
 
+import com.google.gson.annotations.Expose;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import in.nash.showtime.model.db.ShowTimeDatabase;
 import in.nash.showtime.network.MoviesResponse;
 
 /**
  * Created by avinash on 19/06/15.
  */
 
-public class Movie {
+@Table(databaseName = ShowTimeDatabase.NAME)
+public class Movie extends BaseModel{
 
-    private String id;
+    @Expose
+    @Column
+    @PrimaryKey
+    public String id;
 
-    private String original_language;
+    @Expose
+    @Column
+    public String original_language;
 
-    private String original_title;
+    @Expose
+    @Column
+    public String original_title;
 
-    private String release_date;
+    @Expose
+    @Column
+    public String release_date;
 
+    @Expose
+    @Column
     public Integer budget;
 
-    private String popularity;
+    @Expose
+    @Column
+    public String popularity;
 
-    private String title;
+    @Expose
+    @Column
+    public String title;
 
-    private String backdrop_path;
+    @Expose
+    @Column
+    public String backdrop_path;
 
-    private String poster_path;
+    @Expose
+    @Column
+    public String poster_path;
 
-    private String overview;
+    @Expose
+    @Column
+    public String overview;
 
-    private Integer revenue;
+    @Expose
+    @Column
+    public Integer revenue;
 
-    private int runtime;
+    @Expose
+    @Column
+    public int runtime;
 
-    private double vote_average;
+    @Expose
+    @Column
+    public double vote_average;
 
-    private int vote_count;
+    @Expose
+    @Column
+    public int vote_count;
 
+    @Expose
     public Credits credits;
 
+    @Expose
     public Videos videos;
 
+    @Expose
     public MoviesResponse similar;
 
     public Credits getCredits() {
