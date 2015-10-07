@@ -1,22 +1,33 @@
 package in.nash.showtime.model;
 
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Avinash Hindupur on 25/06/15.
  */
+@Table(name="Person")
 public class Person {
 
+    @Expose
     private String id;
 
+    @Expose
     private String name;
 
+    @Expose
     private String profile_path;
 
+    @Expose
     private String credit_id;
 
+    @Expose
     private String character;
 
+    @Expose
     private String job;
 
+    @Expose
     private String department;
 
     public String getId() {

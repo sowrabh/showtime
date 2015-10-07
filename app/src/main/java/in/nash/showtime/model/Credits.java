@@ -1,18 +1,26 @@
 package in.nash.showtime.model;
 
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
  * Created by avinash on 9/12/15.
  */
+@Table(name="Credits")
 public class Credits {
 
+    @Expose
     public Integer id;
 
+    @Expose
     public List<Person> cast;
 
+    @Expose
     public List<Person> crew;
 
+    @Expose
     public List<Person> guest_stars;
 
     public Integer getId() {

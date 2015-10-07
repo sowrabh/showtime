@@ -1,45 +1,81 @@
 package in.nash.showtime.model;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
+
 import in.nash.showtime.network.MoviesResponse;
 
 /**
  * Created by avinash on 19/06/15.
  */
+@Table(name = "Movies")
+public class Movie extends Model{
 
-public class Movie {
+    @Expose
+    @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    public String id;
 
-    private String id;
-
+    @Expose
+    @Column(name = "original_language")
     private String original_language;
 
+    @Expose
+    @Column(name = "original_title")
     private String original_title;
 
+    @Expose
+    @Column(name = "release_date")
     private String release_date;
 
+    @Expose
+    @Column(name = "budget")
     public Integer budget;
 
+    @Expose
+    @Column(name = "popularity")
     private String popularity;
 
+    @Expose
+    @Column(name = "title")
     private String title;
 
+    @Expose
+    @Column(name = "backdrop_path")
     private String backdrop_path;
 
+    @Expose
+    @Column(name = "poster_path")
     private String poster_path;
 
+    @Expose
+    @Column(name = "overview")
     private String overview;
 
+    @Expose
+    @Column(name = "revenue")
     private Integer revenue;
 
+    @Expose
+    @Column(name = "runtime")
     private int runtime;
 
+    @Expose
+    @Column(name = "vote_average")
     private double vote_average;
 
+    @Expose
+    @Column(name = "vote_count")
     private int vote_count;
 
+    @Expose
     public Credits credits;
 
+    @Expose
     public Videos videos;
 
+    @Expose
     public MoviesResponse similar;
 
     public Credits getCredits() {
@@ -96,14 +132,6 @@ public class Movie {
 
     public void setPosterUrl(String posterPath) {
         this.poster_path = posterPath;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getOriginalLanguage() {

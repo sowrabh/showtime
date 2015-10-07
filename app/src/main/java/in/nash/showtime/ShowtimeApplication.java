@@ -3,6 +3,7 @@ package in.nash.showtime;
 import android.app.Application;
 import android.content.Context;
 
+import com.activeandroid.ActiveAndroid;
 import com.parse.Parse;
 
 import in.nash.showtime.utils.StethoUtil;
@@ -23,6 +24,8 @@ public class ShowtimeApplication extends Application{
         Parse.initialize(this, Secrets.PARSE_APP_ID, Secrets.PARSE_KEY);
 
         sApplicationContext = getApplicationContext();
+
+        ActiveAndroid.initialize(this);
     }
 
     public static Context getAppContext() {

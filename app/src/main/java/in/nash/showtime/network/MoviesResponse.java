@@ -1,5 +1,7 @@
 package in.nash.showtime.network;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.ArrayList;
 
 import in.nash.showtime.model.Movie;
@@ -9,6 +11,7 @@ import in.nash.showtime.model.Movie;
  */
 public class MoviesResponse extends BaseResponse {
 
+    @Expose
     public ArrayList<Movie> results;
 
 }
