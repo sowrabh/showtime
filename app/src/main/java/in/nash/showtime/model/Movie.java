@@ -2,6 +2,8 @@ package in.nash.showtime.model;
 
 import com.google.gson.annotations.Expose;
 import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.ForeignKey;
+import com.raizlabs.android.dbflow.annotation.ForeignKeyReference;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
@@ -74,12 +76,18 @@ public class Movie extends BaseModel{
     public int vote_count;
 
     @Expose
+    @Column
+    @ForeignKey(
+            references = {@ForeignKeyReference(columnName = "credits_id",
+                    columnType = Integer.class,
+                    foreignColumnName = "id")},
+            saveForeignKeyModel = true)
     public Credits credits;
 
-    @Expose
+//    @Expose
     public Videos videos;
 
-    @Expose
+//    @Expose
     public MoviesResponse similar;
 
     public Credits getCredits() {

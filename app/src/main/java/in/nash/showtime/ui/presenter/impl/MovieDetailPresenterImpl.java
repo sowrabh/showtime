@@ -45,7 +45,9 @@ public class MovieDetailPresenterImpl implements IMovieDetailPresenter {
 
                     @Override
                     public void onNext(Movie movie) {
-
+                        if(movie != null) {
+                            movie.async().save();
+                        }
                         mMovieDetailView.setMovie(movie);
 
                     }

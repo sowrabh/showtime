@@ -1,23 +1,32 @@
 package in.nash.showtime.model;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Avinash Hindupur on 25/06/15.
  */
 public class Person {
 
-    private String id;
+    @Expose
+    public String id;
 
-    private String name;
+    @Expose
+    public String name;
 
-    private String profile_path;
+    @Expose
+    public String profile_path;
 
-    private String credit_id;
+    @Expose
+    public String credit_id;
 
-    private String character;
+    @Expose
+    public String character;
 
-    private String job;
+    @Expose
+    public String job;
 
-    private String department;
+    @Expose
+    public String department;
 
     public String getId() {
         return id;
