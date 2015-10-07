@@ -2,15 +2,14 @@ package in.nash.showtime.model;
 
 import com.google.gson.annotations.Expose;
 import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.ForeignKey;
-import com.raizlabs.android.dbflow.annotation.ForeignKeyReference;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.sql.language.Insert;
 import com.raizlabs.android.dbflow.structure.BaseModel;
-import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 
 import java.util.List;
 
+import in.nash.showtime.model.db.PersonToCredits;
 import in.nash.showtime.model.db.ShowTimeDatabase;
 
 /**
@@ -24,17 +23,28 @@ public class Credits extends BaseModel{
     @PrimaryKey
     public Integer id;
 
-    //    @Column
     @Expose
     public List<Person> cast;
 
-    //    @Column
     @Expose
     public List<Person> crew;
 
-    //    @Column
     @Expose
     public List<Person> guest_stars;
+
+    @Override
+    public void save() {
+        super.save();
+
+//        for(Person person : cast){
+//            PersonToCredits p2c = new PersonToCredits();
+//            p2c.person_id = person;
+//            p2c.credits_id = this;
+//            p2c.save();
+////            Insert.into(PersonToCredits.class).columns("person_id", "credits_id")
+////                    .values(person.id, id).query();
+//        }
+    }
 
     public Integer getId() {
         return id;

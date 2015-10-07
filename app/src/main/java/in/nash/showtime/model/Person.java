@@ -1,32 +1,48 @@
 package in.nash.showtime.model;
 
 import com.google.gson.annotations.Expose;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
+
+import in.nash.showtime.model.db.ShowTimeDatabase;
 
 /**
  * Created by Avinash Hindupur on 25/06/15.
  */
-public class Person {
+@Table(databaseName = ShowTimeDatabase.NAME)
+public class Person extends BaseModel{
 
     @Expose
+    @Column
+    @PrimaryKey
     public String id;
 
     @Expose
+    @Column
     public String name;
 
     @Expose
+    @Column
     public String profile_path;
 
     @Expose
+    @Column
     public String credit_id;
 
     @Expose
+    @Column
     public String character;
 
     @Expose
+    @Column
     public String job;
 
     @Expose
+    @Column
     public String department;
+
 
     public String getId() {
         return id;
