@@ -36,14 +36,16 @@ public class Credits extends BaseModel{
     public void save() {
         super.save();
 
-//        for(Person person : cast){
-//            PersonToCredits p2c = new PersonToCredits();
-//            p2c.person_id = person;
-//            p2c.credits_id = this;
-//            p2c.save();
-////            Insert.into(PersonToCredits.class).columns("person_id", "credits_id")
-////                    .values(person.id, id).query();
-//        }
+        for(Person person : cast){
+            person.save();
+
+            PersonToCredits p2c = new PersonToCredits();
+            p2c.person = person;
+            p2c.credits = this;
+            p2c.save();
+//            Insert.into(PersonToCredits.class).columns("person", "credits")
+//                    .values(person.id, id).query();
+        }
     }
 
     public Integer getId() {

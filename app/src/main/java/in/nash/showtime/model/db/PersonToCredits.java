@@ -19,25 +19,28 @@ import in.nash.showtime.model.Person;
 @Table(databaseName = ShowTimeDatabase.NAME,
         uniqueColumnGroups = {@UniqueGroup(groupNumber = 1, uniqueConflict = ConflictAction.IGNORE)})
 public class PersonToCredits extends BaseModel{
+    public static final String COLUMN_PERSON_ID = "person_id";
+    public static final String COLUMN_CREDITS_ID = "credits_id";
+
     @Column
     @PrimaryKey(autoincrement = true)
     public long id;
 
     @Column
     @ForeignKey(
-            references = {@ForeignKeyReference(columnName = "person_id",
+            references = {@ForeignKeyReference(columnName = COLUMN_PERSON_ID,
                     columnType = String.class,
                     foreignColumnName = "id")},
-            saveForeignKeyModel = true)
+            saveForeignKeyModel = false)
     @Unique(unique = false, uniqueGroups = 1)
-    public Person person_id;
+    public Person person;
 
     @Column
     @ForeignKey(
-            references = {@ForeignKeyReference(columnName = "credits_id",
+            references = {@ForeignKeyReference(columnName = COLUMN_CREDITS_ID,
                     columnType = Integer.class,
                     foreignColumnName = "id")},
-            saveForeignKeyModel = true)
+            saveForeignKeyModel = false)
     @Unique(unique = false, uniqueGroups = 1)
-    public Credits credits_id;
+    public Credits credits;
 }

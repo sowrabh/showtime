@@ -78,7 +78,7 @@ public class Movie extends BaseModel{
     @Expose
     @Column
     @ForeignKey(
-            references = {@ForeignKeyReference(columnName = "credits_id",
+            references = {@ForeignKeyReference(columnName = "credits",
                     columnType = Integer.class,
                     foreignColumnName = "id")},
             saveForeignKeyModel = true)
